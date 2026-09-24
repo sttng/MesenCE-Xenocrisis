@@ -130,6 +130,8 @@
     <ClInclude Include="SNES\Coprocessors\ST018\ArmV3Cpu.h" />
     <ClInclude Include="SNES\Coprocessors\ST018\ArmV3Types.h" />
     <ClInclude Include="SNES\Coprocessors\ST018\St018.h" />
+    <ClInclude Include="SNES\Coprocessors\XenoCrisis\Rp2040.h" />
+    <ClInclude Include="SNES\Coprocessors\XenoCrisis\XenoCrisis.h" />
     <ClInclude Include="SNES\Coprocessors\ST018\St018Types.h" />
     <ClInclude Include="SNES\Coprocessors\SufamiTurbo\SufamiTurbo.h" />
     <ClInclude Include="SNES\Debugger\DummyArmV3Cpu.h" />
@@ -971,6 +973,8 @@
     <ClCompile Include="SNES\AluMulDiv.cpp" />
     <ClCompile Include="SNES\Coprocessors\ST018\ArmV3Cpu.cpp" />
     <ClCompile Include="SNES\Coprocessors\ST018\St018.cpp" />
+    <ClCompile Include="SNES\Coprocessors\XenoCrisis\Rp2040.cpp" />
+    <ClCompile Include="SNES\Coprocessors\XenoCrisis\XenoCrisis.cpp" />
     <ClCompile Include="SNES\Debugger\DummyArmV3Cpu.cpp" />
     <ClCompile Include="SNES\Debugger\DummySnesCpu.cpp" />
     <ClCompile Include="SNES\Debugger\DummySpc.cpp" />

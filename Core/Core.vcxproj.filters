@@ -2934,6 +2934,12 @@
     <ClInclude Include="GBA\GbaCpuMultiply.h">
       <Filter>GBA</Filter>
     </ClInclude>
+    <ClInclude Include="SNES\Coprocessors\XenoCrisis\Rp2040.h">
+      <Filter>SNES\Coprocessors\XenoCrisis</Filter>
+    </ClInclude>
+    <ClInclude Include="SNES\Coprocessors\XenoCrisis\XenoCrisis.h">
+      <Filter>SNES\Coprocessors\XenoCrisis</Filter>
+    </ClInclude>
     <ClInclude Include="SNES\Coprocessors\ST018\St018.h">
       <Filter>SNES\Coprocessors\ST018</Filter>
     </ClInclude>
@@ -3362,6 +3368,12 @@
     <ClCompile Include="NES\Mappers\Homebrew\Rainbow.cpp">
       <Filter>NES\Mappers\Homebrew</Filter>
     </ClCompile>
+    <ClCompile Include="SNES\Coprocessors\XenoCrisis\Rp2040.cpp">
+      <Filter>SNES\Coprocessors\XenoCrisis</Filter>
+    </ClCompile>
+    <ClCompile Include="SNES\Coprocessors\XenoCrisis\XenoCrisis.cpp">
+      <Filter>SNES\Coprocessors\XenoCrisis</Filter>
+    </ClCompile>
     <ClCompile Include="SNES\Coprocessors\ST018\St018.cpp">
       <Filter>SNES\Coprocessors\ST018</Filter>
     </ClCompile>
@@ -3531,6 +3543,9 @@
     </Filter>
     <Filter Include="WS\APU">
       <UniqueIdentifier>{e8ed2b40-f0e0-4dc5-89b7-9acc460359c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SNES\Coprocessors\XenoCrisis">
+      <UniqueIdentifier>{4a7b1b47-cac1-43d1-97f5-8c485e419f8f}</UniqueIdentifier>
     </Filter>
     <Filter Include="SNES\Coprocessors\ST018">
       <UniqueIdentifier>{387c0b44-8063-45e8-a28a-b6d9e27b5a3f}</UniqueIdentifier>

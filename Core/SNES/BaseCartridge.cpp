@@ -20,6 +20,7 @@
 #include "SNES/Coprocessors/BSX/BsxMemoryPack.h"
 #include "SNES/Coprocessors/SGB/SuperGameboy.h"
 #include "SNES/Coprocessors/SufamiTurbo/SufamiTurbo.h"
+#include "SNES/Coprocessors/XenoCrisis/XenoCrisis.h"
 #include "Shared/EmuSettings.h"
 #include "Shared/SettingTypes.h"
 #include "Shared/BatteryManager.h"
@@ -268,6 +269,11 @@ void BaseCartridge::LoadRom()
 
 CoprocessorType BaseCartridge::GetCoprocessorType()
 {
+	if(XenoCrisis::IsXenoCrisis(_cartInfo.RomType, _cartInfo.MakerCode, _cartInfo.GameCode)) {
+		_hasBattery = true; //saves live in the RP2040's flash
+		return CoprocessorType::XenoCrisis;
+	}
+
 	if((_cartInfo.RomType & 0x0F) >= 0x03) {
 		switch((_cartInfo.RomType & 0xF0) >> 4) {
 			case 0x00: return GetDspVersion();
@@ -561,6 +567,9 @@ void BaseCartridge::InitCoprocessor()
 		_coprocessor.reset(new Cx4(_console));
 		_cx4 = dynamic_cast<Cx4*>(_coprocessor.get());
 		_needCoprocSync = true;
+	} else if(_coprocessorType == CoprocessorType::XenoCrisis) {
+		VirtualFile romFile(_romPath);
+		_coprocessor.reset(new XenoCrisis(_console, romFile));
 	} else if(_coprocessorType == CoprocessorType::ST018) {
 		_coprocessor.reset(new St018(_console));
 		_st018 = dynamic_cast<St018*>(_coprocessor.get());
@@ -845,6 +854,7 @@ void BaseCartridge::DisplayCartInfo(bool showCorruptedHeaderWarning)
 			case CoprocessorType::ST011: coProcMessage += "ST011"; break;
 			case CoprocessorType::ST018: coProcMessage += "ST018"; break;
 			case CoprocessorType::SGB: coProcMessage += "Super Game Boy"; break;
+			case CoprocessorType::XenoCrisis: coProcMessage += "RP2040 (Xeno Crisis)"; break;
 		}
 		MessageManager::Log(coProcMessage);
 	}
